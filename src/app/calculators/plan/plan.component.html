@@ -1,0 +1,67 @@
+<main class="text-center py-5 mt-5 view">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-left">
+                <h1 class="page-title">
+                    Race Plan
+                    <img class="animated slideInLeft rwt-logo" src="/assets/images/run_with_traffic_logo.png" alt="RaceCalc logo" />
+                </h1>
+        
+                <div class="row">
+                    <div class="col-md-12">
+                        <form>
+                            <div class="form-group">
+                                <label class="control-label" for="input-race">Race Distance:</label>
+                                <select id="input-race" 
+                                        class="form-control"
+                                        name="inputRace"
+                                        [(ngModel)]="result.plan.race"
+                                        (change)="onUpdate()">
+                                    <option [ngValue]="null">-- Select Race Distance --</option>
+                                    <option *ngFor="let race of races" [ngValue]="race">
+                                        {{race.name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="input-time">Race Pace (MM:SS):</label>
+                                <app-time id="input-time" [data]="result.plan.time" [skipHour]="true" (input)="onUpdate()"></app-time>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        
+                <div class="row" *ngIf="result.plan.splits">
+                    <div class="col-md-12">
+                        <div class="output">
+                            <h5>Splits: <i class="fa fa-times-circle-o pl-2 clear" mdbTooltip="Clear" placement="right" (click)="clear()"></i></h5>
+                            <table class="table table-condensed table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Mile</th>
+                                        <th>Elapsed Time <span class="unit-light">(HH:MM:SS)</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let split of result.plan.splits">
+                                        <td>
+                                            Mile {{ split.mile }}
+                                        </td>
+                                        <td>
+                                            {{ split.time }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-6 text-left">
+                <p class="mt-3">Calculate projected mile splits, based on distance and goal pace.</p>
+                <img class="img-thumbnail img-fluid animated fadeIn" src="assets/images/nyc_marathon.jpg" alt="New York City Marathon" />
+            </div>
+        </div>
+    </div>
+</main>

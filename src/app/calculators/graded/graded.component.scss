@@ -1,0 +1,22 @@
+.view {
+    background: #fed;
+}
+.output
+{
+    background-color: #edc;
+    border: 2px solid #cba;
+}
+.progress {
+    margin: 15px 0;
+    height: 25px;
+    .progress-bar {
+        text-align: left;
+        padding-left: 10px;
+        font-weight: 500;
+        font-size: 1.4em;
+    }
+}
+.age {
+    width: 80px !important;
+    text-align: right;
+}

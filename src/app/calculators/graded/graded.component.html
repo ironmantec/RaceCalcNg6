@@ -1,0 +1,107 @@
+<main class="text-center py-5 mt-5 view">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-left">
+                <h1 class="page-title">
+                    Age-Graded Scoring
+                    <img class="animated slideInLeft rwt-logo" src="/assets/images/run_with_traffic_logo.png" alt="RaceCalc logo" />
+                </h1>
+        
+                <div class="row">
+                    <div class="col-md-12">
+                        <form>
+                            <div class="form-group">
+                                <label class="control-label" for="input-race">Race Distance:</label>
+                                <select id="input-race" 
+                                        class="form-control"
+                                        name="inputRace"
+                                        [(ngModel)]="result.graded.race"
+                                        (change)="onUpdate()">
+                                    <option [ngValue]="null">-- Select Race Distance --</option>
+                                    <option *ngFor="let race of races" [ngValue]="race">
+                                        {{race.name}}
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="input-time">Race Finish Time (HH:MM:SS):</label>
+                                <app-time id="input-time" [data]="result.graded.time" (input)="onUpdate()"></app-time>
+                            </div><br>
+
+                            <div class="form-group mt-4">
+                                <label class="control-label" for="input-gender">Gender:</label><br>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" mdbInputDirective name="gender-group" type="radio" id="radio-male" value="male" [(ngModel)]="result.graded.gender" (input)="onUpdate()">
+                                    <label class="form-check-label" for="radio-male">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" mdbInputDirective name="gender-group" type="radio" id="radio-female" value="female" [(ngModel)]="result.graded.gender" (input)="onUpdate()">
+                                    <label class="form-check-label" for="radio-male">Female</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label" for="input-age">Age:</label>
+                                <input class="form-control age" id="input-age" type="number" name="inputAge" min="0" max="120" [(ngModel)]="result.graded.age" (input)="onUpdate()"> 
+                            </div>
+                        </form>
+                    </div>
+                </div>
+        
+                <div class="row" *ngIf="result.graded.scoredPct && result.graded.scoredTime">
+                    <div class="col-md-12">
+                        <div class="output">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5>Age Graded Time <span class="unit-dark">(HH:MM:SS)</span>: <i class="fa fa-times-circle-o pl-2 clear" mdbTooltip="Clear" placement="right" (click)="clear()"></i></h5>
+                                    <div id="outputAGTime" class="result">{{result.graded.scoredTime}}</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5>Age Graded Percent:</h5>
+                                    <div class="progress">
+                                        <div class="progress-bar text-center" 
+                                            [ngClass]="{'bg-danger': result.graded.scoredPct >= 90, 
+                                                        'bg-warning': result.graded.scoredPct >= 80 && result.graded.scoredPct < 90, 
+                                                        'bg-info': result.graded.scoredPct >= 70 && result.graded.scoredPct < 80,
+                                                        'bg-success': result.graded.scoredPct >= 60 && result.graded.scoredPct < 70 
+                                                        }"
+                                            [ngStyle]="{'width.%': result.graded.scoredPct}">
+                                            {{result.graded.scoredPct | number : '1.1-1'}}%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        
+            <div class="col-md-6 text-left">
+                <p class="mt-3">Calculate age-graded scoring based on age and gender, in order to provide a level comparison across all runners, as well as age-grading scoring class.</p>
+                <img class="img-thumbnail img-fluid animated fadeIn" src="assets/images/boston_marathon_finish.jpg" alt="Boston Marathon Finish" />
+
+                <div class="output key">
+                    <h5>Age-Graded Scoring Classes</h5>
+                    <div class="progress">
+                        <div class="progress-bar bg-danger" style="width: 90%">Over 90% - World Class</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-warning" style="width: 80%">Over 80% - National Class</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-info" style="width: 70%">Over 70% - Regional Class</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" style="width: 60%">Over 60% - Local Class</div>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 50%">Under 60% - Runner</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

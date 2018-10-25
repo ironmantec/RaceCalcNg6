@@ -1,0 +1,31 @@
+.view {
+    background: #efd;
+}
+.output
+{
+    background-color: #dec;
+    border: 2px solid #bca;
+}
+
+table {    
+    margin-top: 20px;
+    background: #fff;
+    border: 2px solid #bca;
+
+    th {
+        background-color: #786;
+        color: #fff;
+        padding: 10px;
+        font-size: 1.1em;
+        font-weight: 500;
+    }
+    td {
+        padding: 5px 10px;
+        font-size: 1.1em;
+        font-weight: 500;
+    }
+    tr:last-child {
+        background-color: #ddd;
+        color: #933;
+    }
+}

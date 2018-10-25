@@ -1,0 +1,37 @@
+<main class="text-center py-5 mt-5 view">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-left">
+                <h1 class="page-title">
+                    Treadmill Conversion
+                    <img class="animated slideInLeft rwt-logo" src="/assets/images/run_with_traffic_logo.png" alt="RaceCalc logo" />
+                </h1>
+    
+                <div class="row">
+                    <div class="col-md-12">
+                        <form>
+                            <div class="form-group">
+                                <label class="control-label" for="input-speed">Treadmill Speed (MPH):</label>
+                                <input id="input-speed" name="mph" class="form-control" type="number" [(ngModel)]="result.treadmill.speed" min=".1" max="12" step=".1" placeholder="MPH" (input)="onUpdate()">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+    
+                <div class="row" *ngIf="result.treadmill.perMile">
+                    <div class="col-md-12">
+                        <div class="output">
+                            <h5>Pace Per Mile <span class="unit-dark">(MM:SS)</span>: <i class="fa fa-times-circle-o pl-2 clear" mdbTooltip="Clear" placement="right" (click)="clear()"></i></h5>
+                            <div class="result">{{result.treadmill.perMile}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col-md-6 text-left">
+                <p class="mt-3">Calculate pace per mile based on treadmill miles per hour.</p>
+                <img class="img-thumbnail img-fluid animated fadeIn" src="assets/images/treadmill.jpg" alt="Treadmill Runners" />
+            </div>
+        </div>
+    </div>
+</main>

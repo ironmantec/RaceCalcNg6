@@ -1,0 +1,7 @@
+<div>
+    <input *ngIf="!skipHour" class="form-control" type="number" [(ngModel)]="data.hrs" min="0" max="99" placeholder="hrs"> 
+    <span *ngIf="!skipHour">:</span>
+    <input class="form-control" type="number" [(ngModel)]="data.min" min="-1" max="60" placeholder="min" (input)="onUpdateMinutes()"> 
+    <span>:</span>
+    <input class="form-control" type="number" [(ngModel)]="data.sec" min="-1" max="60" placeholder="sec" (input)="onUpdateSeconds()">
+</div>

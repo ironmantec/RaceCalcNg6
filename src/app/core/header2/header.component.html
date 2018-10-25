@@ -1,0 +1,23 @@
+<header>
+  <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark unique-color scrolling-navbar intro-fixed-nav" [containerInside]="true">
+      <logo>
+          <a routerLink="/home" routerLinkActive="active" class="logo navbar-brand" href="#"><strong><i>RaceCalc</i></strong></a>
+      </logo>
+      <links>
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item waves-light" mdbWavesEffect>
+                  <a routerLink="/pace" routerLinkActive="active" class="nav-link">Pace</a>
+              </li>
+              <li class="nav-item waves-light" mdbWavesEffect>
+                  <a routerLink="/plan" routerLinkActive="active" class="nav-link">Plan</a>
+              </li>
+              <li class="nav-item waves-light" mdbWavesEffect>
+                <a routerLink="/graded" routerLinkActive="active" class="nav-link">Age-Graded</a>
+            </li>
+            <li class="nav-item waves-light" mdbWavesEffect>
+                <a routerLink="/treadmill" routerLinkActive="active" class="nav-link">Treadmill</a>
+            </li>
+          </ul>
+      </links>
+  </mdb-navbar>
+</header>
