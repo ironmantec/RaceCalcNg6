@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
+RaceCalc is a simple set of running calculators that help runners with race pace, race planning, age-graded scoring and treadmill speed conversion. It's an application built on Angular 6 and Bootstrap 4. 
+
+Over the years, with each new programming language or framework, building race calculators has become my own personal "Hello World" application. 
+
+## Author
+
+Paul Russo
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
